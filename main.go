@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
+)
 
 func main() {
-	fmt.Println("Test ")
+	fmt.Println("Hello World API")
+
+	route := mux.NewRouter()
+	route.HandleFunc("/app", PokemonHandler)
+	http.Handle("/", route)
 }
